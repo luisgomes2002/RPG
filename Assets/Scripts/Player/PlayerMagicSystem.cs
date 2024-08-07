@@ -9,9 +9,9 @@ public class PlayerMagicSystem : MonoBehaviour
     private Camera mainCamera;
     [SerializeField] private Vector3 mousePosition;
     [SerializeField] private Transform magicSpaw;
-    [SerializeField] private bool castingMagic;
-    [SerializeField] private float timer;
-    [SerializeField] private float timerBeteweenCasting;
+    private bool castingMagic;
+    private float timer;
+    private float timerBeteweenCasting;
 
 
     void Start()
@@ -22,7 +22,7 @@ public class PlayerMagicSystem : MonoBehaviour
 
     void Update()
     {
-        magicSpawPosition();
+        MagicSpawPosition();
 
         if (!castingMagic)
         {
@@ -38,7 +38,7 @@ public class PlayerMagicSystem : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && castingMagic) CastSpell();
     }
 
-    void magicSpawPosition()
+    void MagicSpawPosition()
     {
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePosition - transform.position;

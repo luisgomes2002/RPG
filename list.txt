@@ -1,0 +1,5 @@
+- Dependendo da magia o player/mod tem que parar para casta.
+
+- So calcular a distancia do player para o mod(ANDAR OU ATACAR) quando o player estiver dentro do range do mob.
+
+- Criar um cooldown de cast para cada magia.

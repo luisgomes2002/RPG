@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
+    // HP
     public float playerHp;
     // Mana
     public float playerMana;
@@ -48,6 +49,11 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
+    void TakeDamage(float damage)
+    {
+        playerHp -= damage;
+    }
+
     void Move()
     {
         float moveX = Input.GetAxis("Horizontal");
@@ -61,7 +67,7 @@ public class PlayerStatus : MonoBehaviour
         if (playerHp <= 0)
         {
             playerIsAlive = false;
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

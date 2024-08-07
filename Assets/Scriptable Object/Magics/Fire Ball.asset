@@ -21,7 +21,7 @@ MonoBehaviour:
   magicDamage: 3
   magicDamageAmount: 1
   magicManaCost: 5
-  magicSpeed: 10
+  magicSpeed: 5
   magicCooldown: 6
   magicLifeTime: 8
   magicRadius: 15
