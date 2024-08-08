@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MobMagicSystem : MonoBehaviour
 {
-    public Magic magic;
+    public Magic Magic;
     [SerializeField] private GameObject playerToFollow;
     [SerializeField] private float mobAttackDistance;
     [SerializeField] private Transform magicSpaw;
@@ -12,7 +12,7 @@ public class MobMagicSystem : MonoBehaviour
     private float angle;
     private float timer;
     private bool castingMagic;
-    Vector2 direction;
+    private Vector2 direction;
 
 
     void Update()
@@ -24,7 +24,7 @@ public class MobMagicSystem : MonoBehaviour
         if (!castingMagic)
         {
             timer += Time.deltaTime;
-            if (timer > magic.magicScriptableObject.magicCooldown)
+            if (timer > Magic.MagicScriptableObject.MagicCooldown)
             {
                 castingMagic = true;
                 timer = 0;
@@ -48,9 +48,9 @@ public class MobMagicSystem : MonoBehaviour
         if (distance <= mobAttackDistance)
         {
             castingMagic = false;
-            GameObject newMagic = Instantiate(magic.gameObject, magicSpaw.transform.position, Quaternion.identity);
-            newMagic.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * magic.magicScriptableObject.magicSpeed;
-            Debug.Log("Magic Casted " + magic.magicScriptableObject.magicName);
+            GameObject newMagic = Instantiate(Magic.gameObject, magicSpaw.transform.position, Quaternion.identity);
+            newMagic.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * Magic.MagicScriptableObject.MagicSpeed;
+            Debug.Log("Magic Casted " + Magic.MagicScriptableObject.MagicName);
         }
     }
 }

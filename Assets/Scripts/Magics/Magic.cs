@@ -6,8 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Magic : MonoBehaviour
 {
-    public MagicScriptableObject magicScriptableObject;
-
+    public MagicScriptableObject MagicScriptableObject;
     private Rigidbody2D rigidbody2D;
     private CircleCollider2D circleCollider2D;
 
@@ -19,7 +18,7 @@ public class Magic : MonoBehaviour
         circleCollider2D = GetComponent<CircleCollider2D>();
         circleCollider2D.isTrigger = true;
 
-        Destroy(this.gameObject, magicScriptableObject.magicLifeTime);
+        Destroy(this.gameObject, MagicScriptableObject.MagicLifeTime);
     }
 
     void Update()
