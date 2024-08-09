@@ -2,39 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobMagicSystem : MonoBehaviour
+public class MobSpellSystem : MonoBehaviour
 {
-    public Magic Magic;
+    public Spell Spell;
     [SerializeField] private GameObject playerToFollow;
     [SerializeField] private float mobAttackDistance;
-    [SerializeField] private Transform magicSpaw;
+    [SerializeField] private Transform spellSpaw;
     private float distance;
     private float angle;
     private float timer;
-    private bool castingMagic;
+    private bool castingSpell;
     private Vector2 direction;
 
 
     void Update()
     {
-        MagicSpawPosition();
+        SpellSpawPosition();
 
-        Debug.Log(timer);
-
-        if (!castingMagic)
+        if (!castingSpell)
         {
             timer += Time.deltaTime;
-            if (timer > Magic.MagicScriptableObject.MagicCooldown)
+            if (timer > Spell.SpellToCast.SpellCooldown)
             {
-                castingMagic = true;
+                castingSpell = true;
                 timer = 0;
             }
         }
 
-        if (castingMagic) Attack();
+        if (castingSpell) Attack();
     }
 
-    void MagicSpawPosition()
+    void SpellSpawPosition()
     {
         distance = Vector2.Distance(transform.position, playerToFollow.transform.position);
         direction = playerToFollow.transform.position - transform.position;
@@ -47,10 +45,10 @@ public class MobMagicSystem : MonoBehaviour
     {
         if (distance <= mobAttackDistance)
         {
-            castingMagic = false;
-            GameObject newMagic = Instantiate(Magic.gameObject, magicSpaw.transform.position, Quaternion.identity);
-            newMagic.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * Magic.MagicScriptableObject.MagicSpeed;
-            Debug.Log("Magic Casted " + Magic.MagicScriptableObject.MagicName);
+            castingSpell = false;
+            GameObject newSpell = Instantiate(Spell.gameObject, spellSpaw.transform.position, Quaternion.identity);
+            newSpell.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y).normalized * Spell.SpellToCast.SpellSpeed;
+            Debug.Log("Spell Casted " + Spell.SpellToCast.SpellName);
         }
     }
 }

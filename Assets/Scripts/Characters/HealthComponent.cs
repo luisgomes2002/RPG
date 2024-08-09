@@ -20,6 +20,7 @@ public class HealthComponent : MonoBehaviour
 	public void TakeDamage(float damage)
 	{
 		currentHealth -= damage;
+		Debug.Log(currentHealth);
 	}
 
 	void Die()

@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7bf50b4ec3eb94daac9d29e6c6d739, type: 3}
   m_Name: Lightning Ball
   m_EditorClassIdentifier: 
-  magicName: Lightning Ball
-  magicType: Cast
-  magicRarity: Common
-  magicDescription: 
-  magicIcon: {fileID: 0}
-  magicLevel: 0
-  magicDamage: 10
-  magicDamageAmount: 0
-  magicManaCost: 3
-  magicSpeed: 60
-  magicCooldown: 5
-  magicLifeTime: 3
-  magicRadius: 12
+  SpellName: 
+  SpellType: 
+  SpellRarity: 
+  SpellDescription: 
+  SpellIcon: {fileID: 0}
+  SpellLevel: 0
+  SpellDamage: 0
+  SpellDamageAmount: 0
+  SpellManaCost: 0
+  SpellSpeed: 0
+  SpellCooldown: 0
+  SpellLifeTime: 0
+  SpellRadius: 0
